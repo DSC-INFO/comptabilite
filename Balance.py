@@ -73,10 +73,8 @@ def scandir(dir_path):
         else:
 
             read_json(file_path)
-
-    for compte in Balance.keys():
-        (credit_balance, debit_balance) = Balance[compte]
-        print (compte,credit_balance, debit_balance, sep=";")
+    
+    return Balance
 
 #file_list=os.listdir(sys.argv[1])
 
@@ -86,5 +84,7 @@ def scandir(dir_path):
 
 # boucle principale du programme
 if __name__ == '__main__':
-    scandir(sys.argv[1])
-
+    Balance = scandir(sys.argv[1])
+    for compte in Balance.keys():
+        (credit_balance, debit_balance) = Balance[compte]
+        print (compte,credit_balance, debit_balance, sep=";")
