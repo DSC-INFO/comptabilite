@@ -69,7 +69,10 @@ def creer_bilan_csv(racine):
         compte = racine.trouverSousCompte(numero_compte)
         if compte is not None:
             difference_self = Decimal(compte.debit) - Decimal(compte.credit)
-            return difference_self
+            if difference_self < Decimal():
+                return Decimal() - difference_self
+            else:
+                return difference_self
         else:
             return Decimal()
     
@@ -143,7 +146,10 @@ def creer_compte_resultat_csv(racine):
         compte = racine.trouverSousCompte(numero_compte)
         if compte is not None:
             difference_self = Decimal(compte.debit) - Decimal(compte.credit)
-            return difference_self
+            if difference_self < Decimal():
+                return Decimal() - difference_self
+            else:
+                return difference_self
         else:
             return Decimal()
     
